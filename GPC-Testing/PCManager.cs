@@ -16,6 +16,6 @@ namespace GPC_Testing
         public string MB;
         public string RAM;
         public string testerName;
-
+        public int orderID;
     }
 }
