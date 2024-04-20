@@ -1,0 +1,10 @@
+D:\XUM\Code Apps\XUM\GPC-Testing\bin\Debug\GPC-Testing.exe.config
+D:\XUM\Code Apps\XUM\GPC-Testing\bin\Debug\GPC-Testing.exe
+D:\XUM\Code Apps\XUM\GPC-Testing\bin\Debug\GPC-Testing.pdb
+D:\XUM\Code Apps\XUM\GPC-Testing\obj\Debug\GPC-Testing.csproj.AssemblyReference.cache
+D:\XUM\Code Apps\XUM\GPC-Testing\obj\Debug\GPC_Testing.Form1.resources
+D:\XUM\Code Apps\XUM\GPC-Testing\obj\Debug\GPC_Testing.Properties.Resources.resources
+D:\XUM\Code Apps\XUM\GPC-Testing\obj\Debug\GPC-Testing.csproj.GenerateResource.cache
+D:\XUM\Code Apps\XUM\GPC-Testing\obj\Debug\GPC-Testing.csproj.CoreCompileInputs.cache
+D:\XUM\Code Apps\XUM\GPC-Testing\obj\Debug\GPC-Testing.exe
+D:\XUM\Code Apps\XUM\GPC-Testing\obj\Debug\GPC-Testing.pdb

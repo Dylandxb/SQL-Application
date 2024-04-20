@@ -17,9 +17,23 @@ namespace GPC_Testing
             InitializeComponent();
         }
 
-        private void panel1_Paint(object sender, PaintEventArgs e)
+        private void button1_Click(object sender, EventArgs e)
         {
+            string userInput = SKU_Input_Text.Text;
+            if (validateInput(userInput))
+            {
+                MessageBox.Show("Searching");
+            }
+            else
+            {
+                MessageBox.Show("Input a valid order");
+            }
+            SKU_Input_Text.Clear();
+        }
 
+        private bool validateInput(string input)
+        {
+            return input.Length >= 1;
         }
     }
 }

@@ -8,14 +8,25 @@ namespace GPC_Testing
 {
     class PCManager
     {
-
-        public int id;
+        public int ID;
+        public int orderID;
         public string SKU;
-        public string CPU;
-        public string PSU;
-        public string MB;
-        public string RAM;
-        public string testerName;
-        public int orderID = 0;
+        public int quantity;
+        public string channel;
+        public string date;
+        public bool isTested;
+        public string testedBy;
+        public string testStatus;
+    }
+
+
+    class Gaming : PCManager
+    {
+
+    }
+
+    class Laptops : PCManager
+    {
+
     }
 }
