@@ -11,6 +11,7 @@ namespace GPC_Testing
     {
         public static string Connection(string DBName)
         {
+            //Finds the database server to connect to
             return ConfigurationManager.ConnectionStrings[DBName].ConnectionString;
         }
     }

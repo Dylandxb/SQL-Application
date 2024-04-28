@@ -15,9 +15,19 @@ namespace GPC_Testing
         public Form1()
         {
             InitializeComponent();
+            SKU_ListBox.DataSource = sKUs;
+            SKU_ListBox.DisplayMember = "Info";
         }
 
-        private void button1_Click(object sender, EventArgs e)
+
+        List<SKU> sKUs = new List<SKU>();
+
+        private bool validateInput(string input)
+        {
+            return input.Length >= 1;
+        }
+
+        private void LookupSKU_Button_Click(object sender, EventArgs e)
         {
             string userInput = SKU_Input_Text.Text;
             if (validateInput(userInput))
@@ -28,12 +38,10 @@ namespace GPC_Testing
             {
                 MessageBox.Show("Input a valid order");
             }
-            SKU_Input_Text.Clear();
-        }
+            DataAccess db = new DataAccess();
+            sKUs = db.GetSKUs(SKU_Input_Text.Text);
 
-        private bool validateInput(string input)
-        {
-            return input.Length >= 1;
+            SKU_Input_Text.Clear();
         }
     }
 }

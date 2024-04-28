@@ -8,5 +8,6 @@ namespace GPC_Testing
 {
     class GPC : SKU
     { 
+        //Inherits data from SKU 
     }
 }

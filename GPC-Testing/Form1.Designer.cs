@@ -28,19 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.lookup_SKU = new System.Windows.Forms.Button();
             this.SKU_Input_Text = new System.Windows.Forms.TextBox();
+            this.SKU_ListBox = new System.Windows.Forms.ListBox();
+            this.SKU_Input_Label = new System.Windows.Forms.Label();
+            this.LookupSKU_Button = new System.Windows.Forms.Button();
             this.SuspendLayout();
-            // 
-            // lookup_SKU
-            // 
-            this.lookup_SKU.Location = new System.Drawing.Point(496, 113);
-            this.lookup_SKU.Name = "lookup_SKU";
-            this.lookup_SKU.Size = new System.Drawing.Size(225, 55);
-            this.lookup_SKU.TabIndex = 0;
-            this.lookup_SKU.Text = "Find SKU";
-            this.lookup_SKU.UseVisualStyleBackColor = true;
-            this.lookup_SKU.Click += new System.EventHandler(this.button1_Click);
             // 
             // SKU_Input_Text
             // 
@@ -50,13 +42,42 @@
             this.SKU_Input_Text.TabIndex = 1;
             this.SKU_Input_Text.Text = "Type here";
             // 
+            // SKU_ListBox
+            // 
+            this.SKU_ListBox.FormattingEnabled = true;
+            this.SKU_ListBox.Location = new System.Drawing.Point(118, 233);
+            this.SKU_ListBox.Name = "SKU_ListBox";
+            this.SKU_ListBox.Size = new System.Drawing.Size(578, 199);
+            this.SKU_ListBox.TabIndex = 2;
+            // 
+            // SKU_Input_Label
+            // 
+            this.SKU_Input_Label.AutoSize = true;
+            this.SKU_Input_Label.Location = new System.Drawing.Point(144, 113);
+            this.SKU_Input_Label.Name = "SKU_Input_Label";
+            this.SKU_Input_Label.Size = new System.Drawing.Size(56, 13);
+            this.SKU_Input_Label.TabIndex = 3;
+            this.SKU_Input_Label.Text = "Type SKU";
+            // 
+            // LookupSKU_Button
+            // 
+            this.LookupSKU_Button.Location = new System.Drawing.Point(537, 119);
+            this.LookupSKU_Button.Name = "LookupSKU_Button";
+            this.LookupSKU_Button.Size = new System.Drawing.Size(113, 42);
+            this.LookupSKU_Button.TabIndex = 4;
+            this.LookupSKU_Button.Text = "Find SKU";
+            this.LookupSKU_Button.UseVisualStyleBackColor = true;
+            this.LookupSKU_Button.Click += new System.EventHandler(this.LookupSKU_Button_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.LookupSKU_Button);
+            this.Controls.Add(this.SKU_Input_Label);
+            this.Controls.Add(this.SKU_ListBox);
             this.Controls.Add(this.SKU_Input_Text);
-            this.Controls.Add(this.lookup_SKU);
             this.Name = "Form1";
             this.Text = "Form1";
             this.ResumeLayout(false);
@@ -65,9 +86,10 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.Button lookup_SKU;
         private System.Windows.Forms.TextBox SKU_Input_Text;
+        private System.Windows.Forms.ListBox SKU_ListBox;
+        private System.Windows.Forms.Label SKU_Input_Label;
+        private System.Windows.Forms.Button LookupSKU_Button;
     }
 }
 

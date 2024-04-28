@@ -8,3 +8,7 @@ D:\XUM\Code Apps\XUM\GPC-Testing\obj\Debug\GPC-Testing.csproj.GenerateResource.c
 D:\XUM\Code Apps\XUM\GPC-Testing\obj\Debug\GPC-Testing.csproj.CoreCompileInputs.cache
 D:\XUM\Code Apps\XUM\GPC-Testing\obj\Debug\GPC-Testing.exe
 D:\XUM\Code Apps\XUM\GPC-Testing\obj\Debug\GPC-Testing.pdb
+D:\XUM\Code Apps\XUM\GPC-Testing\obj\Debug\GPC-Testing.csproj.SuggestedBindingRedirects.cache
+D:\XUM\Code Apps\XUM\GPC-Testing\bin\Debug\Dapper.dll
+D:\XUM\Code Apps\XUM\GPC-Testing\bin\Debug\Dapper.xml
+D:\XUM\Code Apps\XUM\GPC-Testing\obj\Debug\GPC-Testing.csproj.CopyComplete
