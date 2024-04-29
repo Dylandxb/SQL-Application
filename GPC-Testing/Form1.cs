@@ -7,11 +7,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Configuration;
+using System.Data.SqlClient;
 
 namespace GPC_Testing
 {
     public partial class Form1 : Form
     {
+
         public Form1()
         {
             InitializeComponent();
@@ -29,16 +32,19 @@ namespace GPC_Testing
 
         private void LookupSKU_Button_Click(object sender, EventArgs e)
         {
+            DataAccess db = new DataAccess();
+
             string userInput = SKU_Input_Text.Text;
             if (validateInput(userInput))
             {
-                MessageBox.Show("Searching");
+                //MessageBox.Show("Searching");
+                db.GetSKUs(SKU_Input_Text.Text);
+                MessageBox.Show("Connected");
             }
             else
             {
                 MessageBox.Show("Input a valid order");
             }
-            DataAccess db = new DataAccess();
             sKUs = db.GetSKUs(SKU_Input_Text.Text);
 
             SKU_Input_Text.Clear();

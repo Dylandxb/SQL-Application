@@ -32,6 +32,7 @@
             this.SKU_ListBox = new System.Windows.Forms.ListBox();
             this.SKU_Input_Label = new System.Windows.Forms.Label();
             this.LookupSKU_Button = new System.Windows.Forms.Button();
+            this.List_Label = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // SKU_Input_Text
@@ -55,9 +56,9 @@
             this.SKU_Input_Label.AutoSize = true;
             this.SKU_Input_Label.Location = new System.Drawing.Point(144, 113);
             this.SKU_Input_Label.Name = "SKU_Input_Label";
-            this.SKU_Input_Label.Size = new System.Drawing.Size(56, 13);
+            this.SKU_Input_Label.Size = new System.Drawing.Size(66, 13);
             this.SKU_Input_Label.TabIndex = 3;
-            this.SKU_Input_Label.Text = "Type SKU";
+            this.SKU_Input_Label.Text = "SKU Search";
             // 
             // LookupSKU_Button
             // 
@@ -69,11 +70,21 @@
             this.LookupSKU_Button.UseVisualStyleBackColor = true;
             this.LookupSKU_Button.Click += new System.EventHandler(this.LookupSKU_Button_Click);
             // 
+            // List_Label
+            // 
+            this.List_Label.AutoSize = true;
+            this.List_Label.Location = new System.Drawing.Point(115, 208);
+            this.List_Label.Name = "List_Label";
+            this.List_Label.Size = new System.Drawing.Size(124, 13);
+            this.List_Label.TabIndex = 5;
+            this.List_Label.Text = "Display SKUs in List form";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.List_Label);
             this.Controls.Add(this.LookupSKU_Button);
             this.Controls.Add(this.SKU_Input_Label);
             this.Controls.Add(this.SKU_ListBox);
@@ -90,6 +101,7 @@
         private System.Windows.Forms.ListBox SKU_ListBox;
         private System.Windows.Forms.Label SKU_Input_Label;
         private System.Windows.Forms.Button LookupSKU_Button;
+        private System.Windows.Forms.Label List_Label;
     }
 }
 
