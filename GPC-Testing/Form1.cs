@@ -19,7 +19,7 @@ namespace GPC_Testing
         {
             InitializeComponent();
             SKU_ListBox.DataSource = sKUs;
-            SKU_ListBox.DisplayMember = "Info";
+           // SKU_ListBox.DisplayMember = "Info";
         }
 
 
@@ -38,16 +38,26 @@ namespace GPC_Testing
             if (validateInput(userInput))
             {
                 //MessageBox.Show("Searching");
-                db.GetSKUs(SKU_Input_Text.Text);
+               // db.GetSKUs(SKU_Input_Text.Text);
                 MessageBox.Show("Connected");
             }
             else
             {
                 MessageBox.Show("Input a valid order");
             }
-            sKUs = db.GetSKUs(SKU_Input_Text.Text);
+           // sKUs = db.GetSKUs(SKU_Input_Text.Text);
 
             SKU_Input_Text.Clear();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            DataAccess db = new DataAccess();
+            db.ConnTest();
+            if (db.ConnTest() == true)
+            {
+                MessageBox.Show("Connection valid" + db.isConnected);
+            }
         }
     }
 }

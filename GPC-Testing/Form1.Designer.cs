@@ -33,6 +33,7 @@
             this.SKU_Input_Label = new System.Windows.Forms.Label();
             this.LookupSKU_Button = new System.Windows.Forms.Button();
             this.List_Label = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // SKU_Input_Text
@@ -79,11 +80,22 @@
             this.List_Label.TabIndex = 5;
             this.List_Label.Text = "Display SKUs in List form";
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(413, 180);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 6;
+            this.button1.Text = "Test Conn";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.List_Label);
             this.Controls.Add(this.LookupSKU_Button);
             this.Controls.Add(this.SKU_Input_Label);
@@ -102,6 +114,7 @@
         private System.Windows.Forms.Label SKU_Input_Label;
         private System.Windows.Forms.Button LookupSKU_Button;
         private System.Windows.Forms.Label List_Label;
+        private System.Windows.Forms.Button button1;
     }
 }
 
