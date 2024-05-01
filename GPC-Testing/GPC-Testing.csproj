@@ -68,7 +68,6 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>SKUSDBDataSet.xsd</DependentUpon>
     </Compile>
-    <Compile Include="SQLHelper.cs" />
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>

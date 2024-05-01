@@ -14,16 +14,17 @@ namespace GPC_Testing
 {
     public partial class Form1 : Form
     {
-
+        DataAccess db = new DataAccess();
+        int counter;
         public Form1()
         {
             InitializeComponent();
-            SKU_ListBox.DataSource = sKUs;
-           // SKU_ListBox.DisplayMember = "Info";
+           // 
+            SKU_ListBox.DisplayMember = "Info";
         }
 
 
-        List<SKU> sKUs = new List<SKU>();
+        List<string> sKUs=new List<string>();
 
         private bool validateInput(string input)
         {
@@ -32,32 +33,35 @@ namespace GPC_Testing
 
         private void LookupSKU_Button_Click(object sender, EventArgs e)
         {
-            DataAccess db = new DataAccess();
+            db.ConnTest();
 
             string userInput = SKU_Input_Text.Text;
-            if (validateInput(userInput))
+            //Checks for valid text input and DB connection is open
+            if (validateInput(userInput) && db.isConnected)
             {
-                //MessageBox.Show("Searching");
-               // db.GetSKUs(SKU_Input_Text.Text);
-                MessageBox.Show("Connected");
+                MessageBox.Show("Searching & Found DB" + " " + db.isConnected);
+                sKUs.Add(db.GetSKUs(SKU_Input_Text.Text)[0].Info);
+                //if item is detected in db increment counter 
+                SKU_ListBox.DataSource = sKUs;
+               
             }
             else
             {
                 MessageBox.Show("Input a valid order");
             }
-           // sKUs = db.GetSKUs(SKU_Input_Text.Text);
 
             SKU_Input_Text.Clear();
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            DataAccess db = new DataAccess();
             db.ConnTest();
             if (db.ConnTest() == true)
             {
                 MessageBox.Show("Connection valid" + db.isConnected);
             }
         }
+
+        
     }
 }

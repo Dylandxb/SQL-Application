@@ -25,8 +25,10 @@ namespace GPC_Testing
         {
             get 
             {
-                return $"{SKUitem} {caseType} {mobo} {CPU} {RAM} {GPU} {HDD} {SSD} ({ID}) ({windows})";
+                return $"{SKUitem} ";//{caseType} {mobo} {CPU} {RAM} {GPU} {HDD} {SSD} ({ID}) ({windows})";
             }
         }
+
+       
     }
 }

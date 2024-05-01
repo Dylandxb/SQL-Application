@@ -42,7 +42,6 @@
             this.SKU_Input_Text.Name = "SKU_Input_Text";
             this.SKU_Input_Text.Size = new System.Drawing.Size(165, 20);
             this.SKU_Input_Text.TabIndex = 1;
-            this.SKU_Input_Text.Text = "Type here";
             // 
             // SKU_ListBox
             // 
