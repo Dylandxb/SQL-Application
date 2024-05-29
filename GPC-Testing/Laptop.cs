@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace GPC_Testing
 {
-    class Laptop : SKU
+    class Laptop : SKUParent
     {
     }
 }

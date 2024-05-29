@@ -15,53 +15,53 @@ namespace GPC_Testing
     public partial class Form1 : Form
     {
         DataAccess db = new DataAccess();
-        int counter;
+        List<SKUParent> skuList = new List<SKUParent>();
         public Form1()
         {
             InitializeComponent();
-           // 
-            SKU_ListBox.DisplayMember = "Info";
+            UpdateDisplay();
         }
-
-
-        List<string> sKUs=new List<string>();
 
         private bool validateInput(string input)
         {
+           // return input.Length == 6;
             return input.Length >= 1;
+        }
+
+        private void UpdateDisplay()
+        {
+            SKU_ListBox.DataSource = skuList;
+            SKU_ListBox.DisplayMember = "SKU_Info";
         }
 
         private void LookupSKU_Button_Click(object sender, EventArgs e)
         {
             db.ConnTest();
 
-            string userInput = SKU_Input_Text.Text;
+            string userInput = Order_Input_Text.Text;
             //Checks for valid text input and DB connection is open
             if (validateInput(userInput) && db.isConnected)
             {
                 MessageBox.Show("Searching & Found DB" + " " + db.isConnected);
-                sKUs.Add(db.GetSKUs(SKU_Input_Text.Text)[0].Info);
-                //if item is detected in db increment counter 
-                SKU_ListBox.DataSource = sKUs;
-               
+                skuList = db.GetSKUs(userInput);
+                UpdateDisplay();
             }
             else
             {
-                MessageBox.Show("Input a valid order");
+                MessageBox.Show("Input a valid 6 digit order number");
             }
 
-            SKU_Input_Text.Clear();
+            Order_Input_Text.Clear();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void connectionButton_Click(object sender, EventArgs e)
         {
-            db.ConnTest();
             if (db.ConnTest() == true)
             {
-                MessageBox.Show("Connection valid" + db.isConnected);
+                MessageBox.Show("Connection valid: " + db.isConnected);
             }
         }
 
-        
+
     }
 }

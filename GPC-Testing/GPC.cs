@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace GPC_Testing
 {
-    class GPC : SKU
+    class GPC : SKUParent
     { 
         //Inherits data from SKU 
     }
