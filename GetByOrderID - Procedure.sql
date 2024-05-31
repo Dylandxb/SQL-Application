@@ -1,0 +1,5 @@
+
+CREATE Procedure GetByOrderID
+AS 
+
+SELECT * FROM SKUTABLE

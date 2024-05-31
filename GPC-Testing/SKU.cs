@@ -28,7 +28,7 @@ namespace GPC_Testing
             get 
             {
                 //C4+i73770+16504G+B75+1TB+512GB 1034 @WIN10
-                return $"{SKU} | {PCCASE} | {MOBO} |  {CPU} {RAM} {GPU} {HDD} {SSD} {IDnum} {WindowsVersion} {orderID}";
+                return $"- {SKU} ";// ~ {PCCASE} ~ {MOBO} ~  {CPU} ~ {RAM} ~ {GPU} ~ {HDD} ~ {SSD} ~ {IDnum} ~ {WindowsVersion} ~ {orderID}";
             }
         }
 

@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Configuration;
 using System.Data.SqlClient;
+using System.Runtime.InteropServices.WindowsRuntime;
 
 namespace GPC_Testing
 {
@@ -24,8 +25,8 @@ namespace GPC_Testing
 
         private bool validateInput(string input)
         {
-           // return input.Length == 6;
-            return input.Length >= 1;
+           return input.Length == 6;
+
         }
 
         private void UpdateDisplay()
@@ -40,12 +41,18 @@ namespace GPC_Testing
 
             string userInput = Order_Input_Text.Text;
             //Checks for valid text input and DB connection is open
+            //Needs to check order number exists in table before calling the function
             if (validateInput(userInput) && db.isConnected)
             {
-                MessageBox.Show("Searching & Found DB" + " " + db.isConnected);
+                MessageBox.Show("Searching... Found Order & DB connection status is:" + " " + db.isConnected);
                 skuList = db.GetSKUs(userInput);
                 UpdateDisplay();
             }
+            //Else if order id is not found in table & input is 6 digits long, then message box order id doesnt exist
+            //else if (validateInput(userInput) && db.GetSKUs(userInput) == null)
+            //{
+            //    MessageBox.Show("Couldnt find order id");
+            //}
             else
             {
                 MessageBox.Show("Input a valid 6 digit order number");
@@ -62,6 +69,37 @@ namespace GPC_Testing
             }
         }
 
+        private void Order_Input_Text_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            //Only allow for int inputs & backspace key
+            if (!char.IsNumber(e.KeyChar) && e.KeyChar != (char)Keys.Back)
+            {
+                e.Handled = true;
+            }
+        }
 
+        private void Insert_SKU_Button_Click(object sender, EventArgs e)
+        {
+            db.InsertSKU(Input_SKU_Box.Text, Input_Case_Box.Text, Input_MOBO_Box.Text, Input_CPU_Box.Text, Input_RAM_Box.Text, Input_GPU_Box.Text,
+                Input_HDD_Box.Text, Input_SSD_Box.Text, Input_IDnum_Box.Text.Length, Input_Windows_Box.Text, Input_Order_Box.Text.Length);
+
+            List<TextBox> inputList = new List<TextBox>();
+            inputList.Add(Input_SKU_Box);
+            inputList.Add(Input_Case_Box);
+            inputList.Add(Input_MOBO_Box);
+            inputList.Add(Input_CPU_Box);
+            inputList.Add(Input_RAM_Box);
+            inputList.Add(Input_GPU_Box);
+            inputList.Add(Input_HDD_Box);
+            inputList.Add(Input_SSD_Box);
+            inputList.Add(Input_IDnum_Box);
+            inputList.Add(Input_Windows_Box);
+            inputList.Add(Input_Order_Box);
+
+            foreach(TextBox textBox in inputList)
+            {
+                textBox.Text = "";
+            }
+        }
     }
 }
