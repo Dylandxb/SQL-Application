@@ -44,9 +44,14 @@ namespace GPC_Testing
             //Needs to check order number exists in table before calling the function
             if (validateInput(userInput) && db.isConnected)
             {
+                //if (db.ValidateOrder(userInput))
+                //{
+
+                //}
                 MessageBox.Show("Searching... Found Order & DB connection status is:" + " " + db.isConnected);
                 skuList = db.GetSKUs(userInput);
                 UpdateDisplay();
+
             }
             //Else if order id is not found in table & input is 6 digits long, then message box order id doesnt exist
             //else if (validateInput(userInput) && db.GetSKUs(userInput) == null)
@@ -80,9 +85,12 @@ namespace GPC_Testing
 
         private void Insert_SKU_Button_Click(object sender, EventArgs e)
         {
+
+            
             db.InsertSKU(Input_SKU_Box.Text, Input_Case_Box.Text, Input_MOBO_Box.Text, Input_CPU_Box.Text, Input_RAM_Box.Text, Input_GPU_Box.Text,
                 Input_HDD_Box.Text, Input_SSD_Box.Text, Input_IDnum_Box.Text.Length, Input_Windows_Box.Text, Input_Order_Box.Text.Length);
 
+            //Creates an empty textbox for each item in the list
             List<TextBox> inputList = new List<TextBox>();
             inputList.Add(Input_SKU_Box);
             inputList.Add(Input_Case_Box);
@@ -96,10 +104,13 @@ namespace GPC_Testing
             inputList.Add(Input_Windows_Box);
             inputList.Add(Input_Order_Box);
 
-            foreach(TextBox textBox in inputList)
+            foreach (TextBox textBox in inputList)
             {
                 textBox.Text = "";
             }
+            
+
+
         }
     }
 }

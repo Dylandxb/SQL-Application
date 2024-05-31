@@ -27,20 +27,34 @@ namespace GPC_Testing
             return isConnected;
         }
 
-        public bool ValidateOrder()
+        public bool ValidateOrder(string orderNumber)
         {
-            //
-            return orderExists;
+            IDbConnection conn = new SqlConnection(LocalConnString);
+            using (IDbConnection connection = conn)
+            {
+                //Use a count with a select statement and executescalar to get the integer value
+                using (SqlCommand validateCommand = new SqlCommand("SELECT COUNT(1) from dbo.SKUTABLE where orderID like '535710'"))
+                {
+                    int countOrders = (int)validateCommand.ExecuteScalar();
+                    if (countOrders > 0)
+                    {
+                        orderExists = true;
+                    }
+                }
+                return orderExists;
+            }
+
         }
         public List<SKUParent> GetSKUs(string ID)
         {
+            //Initialize a new connection after using it previously
             IDbConnection conn = new SqlConnection(LocalConnString);
             using (IDbConnection connection = conn)
             {
                 //Finds the order id in the table and adds it to the new list, one below is bad practice as there is SQL injection. Better to use a stored procedure taking in 1 parameter
                 //var displaySKUList = connection.Query<SKUParent>($"select * from SKUSDB.dbo.SKUTABLE where orderID = '{ID}'").ToList();
                 var displaySKUList = connection.Query<SKUParent>("SKUSDB.dbo.SKUTABLE_GetByOrderID @orderID", new {orderID = ID}).ToList();
-                //Query needs a type to retrieve data
+                //Query needs a type SKUParent to retrieve its properties
                 return displaySKUList;
 
       
@@ -70,7 +84,9 @@ namespace GPC_Testing
                 });
 
                 //Make a new connection to execute an insert query into each column of the table, using a sql stored procedure
-                conn.Execute("SKUSDB.dbo.SKUTABLE_InsertNewSKU @SKU @PCCase @MOBO @CPU @RAM @GPU @HDD @SSD @IDnum @WindowsVersion @orderID", sKUs);
+                connection.Execute("SKUSDB.dbo.SKUTABLE_InsertNewSKU @SKU, @PCCase, @MOBO, @CPU, @RAM, @GPU, @HDD, @SSD, @IDnum, @WindowsVersion, @orderID", sKUs);
+                //conn.Execute("INSERT INTO SKUSDB.dbo.SKUTABLE (SKU, PCCase, MOBO, CPU, RAM, GPU, HDD, SSD, IDnum, WindowsVersion, orderID)" +
+                 //   "VALUES (@SKU, @PCCase, @MOBO, @CPU, @RAM, @GPU, @HDD, @SSD, @IDnum, @WINDOWSVER, @orderID);");
             }
         }
     }
