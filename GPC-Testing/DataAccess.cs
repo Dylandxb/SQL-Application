@@ -27,16 +27,18 @@ namespace GPC_Testing
             return isConnected;
         }
 
-        public bool ValidateOrder(string orderNumber)
+        public bool ValidateOrder(int orderNumber)
         {
+            //Checks if order number exists in the table, returns true
             IDbConnection conn = new SqlConnection(LocalConnString);
+            conn.Open();
             using (IDbConnection connection = conn)
             {
                 //Use a count with a select statement and executescalar to get the integer value
-                using (SqlCommand validateCommand = new SqlCommand("SELECT COUNT(1) from dbo.SKUTABLE where orderID like '535710'"))
+                using (SqlCommand validateCommand = new SqlCommand("SELECT * FROM dbo.SKUTABLE where orderID = @orderID", (SqlConnection)connection))
                 {
-                    int countOrders = (int)validateCommand.ExecuteScalar();
-                    if (countOrders > 0)
+                    orderNumber = (int)validateCommand.ExecuteScalar();
+                    if (orderNumber > 0)
                     {
                         orderExists = true;
                     }
@@ -45,7 +47,7 @@ namespace GPC_Testing
             }
 
         }
-        public List<SKUParent> GetSKUs(string ID)
+        public List<SKUParent> GetSKUs(int ID)
         {
             //Initialize a new connection after using it previously
             IDbConnection conn = new SqlConnection(LocalConnString);
@@ -85,8 +87,6 @@ namespace GPC_Testing
 
                 //Make a new connection to execute an insert query into each column of the table, using a sql stored procedure
                 connection.Execute("SKUSDB.dbo.SKUTABLE_InsertNewSKU @SKU, @PCCase, @MOBO, @CPU, @RAM, @GPU, @HDD, @SSD, @IDnum, @WindowsVersion, @orderID", sKUs);
-                //conn.Execute("INSERT INTO SKUSDB.dbo.SKUTABLE (SKU, PCCase, MOBO, CPU, RAM, GPU, HDD, SSD, IDnum, WindowsVersion, orderID)" +
-                 //   "VALUES (@SKU, @PCCase, @MOBO, @CPU, @RAM, @GPU, @HDD, @SSD, @IDnum, @WINDOWSVER, @orderID);");
             }
         }
     }

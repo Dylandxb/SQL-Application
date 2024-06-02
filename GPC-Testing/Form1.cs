@@ -23,14 +23,20 @@ namespace GPC_Testing
             UpdateDisplay();
         }
 
-        private bool validateInput(string input)
+        private bool validateOrderInput(int input)
         {
-           return input.Length == 6;
+           return input.ToString().Length == 6;
 
+        }
+
+        private bool validateInsertInput(string input)
+        {
+            return input.Length >= 1;
         }
 
         private void UpdateDisplay()
         {
+            //Updates text in the listbox everytime the function is called, resets per order
             SKU_ListBox.DataSource = skuList;
             SKU_ListBox.DisplayMember = "SKU_Info";
         }
@@ -38,26 +44,23 @@ namespace GPC_Testing
         private void LookupSKU_Button_Click(object sender, EventArgs e)
         {
             db.ConnTest();
-
-            string userInput = Order_Input_Text.Text;
+            int userInput = int.Parse(Order_Input_Text.Text);
             //Checks for valid text input and DB connection is open
             //Needs to check order number exists in table before calling the function
-            if (validateInput(userInput) && db.isConnected)
+            if (validateOrderInput(userInput) && db.isConnected)
             {
-                //if (db.ValidateOrder(userInput))
-                //{
-
-                //}
-                MessageBox.Show("Searching... Found Order & DB connection status is:" + " " + db.isConnected);
-                skuList = db.GetSKUs(userInput);
-                UpdateDisplay();
-
+           //     if (db.ValidateOrder(userInput))
+             //   {
+                    MessageBox.Show("Searching... Found Order & DB connection status is:" + " " + db.isConnected);
+                    skuList = db.GetSKUs(userInput);
+                    UpdateDisplay();
+              //  }
             }
             //Else if order id is not found in table & input is 6 digits long, then message box order id doesnt exist
-            //else if (validateInput(userInput) && db.GetSKUs(userInput) == null)
-            //{
-            //    MessageBox.Show("Couldnt find order id");
-            //}
+            else if (validateOrderInput(userInput) && db.ValidateOrder(userInput))
+            {
+                MessageBox.Show("Couldnt find order id");
+            }
             else
             {
                 MessageBox.Show("Input a valid 6 digit order number");
@@ -86,9 +89,11 @@ namespace GPC_Testing
         private void Insert_SKU_Button_Click(object sender, EventArgs e)
         {
 
-            
+            List<string> inputs = new List<string>();
+
+
             db.InsertSKU(Input_SKU_Box.Text, Input_Case_Box.Text, Input_MOBO_Box.Text, Input_CPU_Box.Text, Input_RAM_Box.Text, Input_GPU_Box.Text,
-                Input_HDD_Box.Text, Input_SSD_Box.Text, Input_IDnum_Box.Text.Length, Input_Windows_Box.Text, Input_Order_Box.Text.Length);
+Input_HDD_Box.Text, Input_SSD_Box.Text, Input_IDnum_Box.Text.Length, Input_Windows_Box.Text, Input_Order_Box.Text.Length);
 
             //Creates an empty textbox for each item in the list
             List<TextBox> inputList = new List<TextBox>();
@@ -107,8 +112,10 @@ namespace GPC_Testing
             foreach (TextBox textBox in inputList)
             {
                 textBox.Text = "";
+               // validateInsertInput(inputList.Count.ToString());
             }
             
+            //Check no text box is empty before inputting & the syntax is correct
 
 
         }
