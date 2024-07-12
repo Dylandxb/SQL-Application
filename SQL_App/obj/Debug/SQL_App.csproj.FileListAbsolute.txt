@@ -1,0 +1,14 @@
+D:\XUM\Code Apps\SQL-Application\SQL_App\bin\Debug\SQL_App.exe.config
+D:\XUM\Code Apps\SQL-Application\SQL_App\bin\Debug\SQL_App.exe
+D:\XUM\Code Apps\SQL-Application\SQL_App\bin\Debug\SQL_App.pdb
+D:\XUM\Code Apps\SQL-Application\SQL_App\bin\Debug\Dapper.dll
+D:\XUM\Code Apps\SQL-Application\SQL_App\bin\Debug\Dapper.xml
+D:\XUM\Code Apps\SQL-Application\SQL_App\obj\Debug\SQL_App.csproj.AssemblyReference.cache
+D:\XUM\Code Apps\SQL-Application\SQL_App\obj\Debug\SQL_App.csproj.SuggestedBindingRedirects.cache
+D:\XUM\Code Apps\SQL-Application\SQL_App\obj\Debug\SQL_App.Form1.resources
+D:\XUM\Code Apps\SQL-Application\SQL_App\obj\Debug\SQL_App.Properties.Resources.resources
+D:\XUM\Code Apps\SQL-Application\SQL_App\obj\Debug\SQL_App.csproj.GenerateResource.cache
+D:\XUM\Code Apps\SQL-Application\SQL_App\obj\Debug\SQL_App.csproj.CoreCompileInputs.cache
+D:\XUM\Code Apps\SQL-Application\SQL_App\obj\Debug\SQL_App.csproj.CopyComplete
+D:\XUM\Code Apps\SQL-Application\SQL_App\obj\Debug\SQL_App.exe
+D:\XUM\Code Apps\SQL-Application\SQL_App\obj\Debug\SQL_App.pdb

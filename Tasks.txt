@@ -1,0 +1,5 @@
+- Don't insert if order ID already exists in table
+- Use a binary search to find the order quicker
+- Fix sql exception when searching for a second order which exists
+- Remove SKU button
+Add all these on Trello
